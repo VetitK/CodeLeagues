@@ -25,7 +25,9 @@
     @apply border-foreground/20;
   }
 } */
-
+::selection {
+  background-color: aquamarine;
+}
 .animate-in {
   animation: animateIn 0.3s ease 0.15s both;
 }
