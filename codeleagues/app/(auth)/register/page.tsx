@@ -7,7 +7,7 @@ import Image from "next/image";
 import locLogo from "@/app/static/LOCLogoNoBG.png";
 import { SubmitButton } from "../login/submit-button";
 import { useState, useEffect, FormEventHandler } from "react";
-import { signUp } from "@/app/auth/functions";
+import { signUp } from "@/app/supabase/auth/functions";
 
 export default function Register(
     {
@@ -17,7 +17,7 @@ export default function Register(
     }
 ) {
     const [formData, setFormData] = useState<FormData>(new FormData());
-    const formChangeHandler : FormEventHandler<HTMLFormElement> = (e) => {
+    const formChangeHandler: FormEventHandler<HTMLFormElement> = (e) => {
         const inputTarget = e.target as HTMLInputElement;
         const { name, value } = inputTarget;
         formData.set(name, value);
@@ -66,8 +66,6 @@ export default function Register(
                             required
                         />
                     </label>
-                    // TODO Add password validation
-
                     <SubmitButton
                         formAction={signUp}
                         className="bg-primary-500 rounded-md px-4 py-3 text-primary-25"
