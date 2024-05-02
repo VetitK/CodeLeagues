@@ -9,6 +9,10 @@ export async function middleware(request: NextRequest) {
   if (user) {
     if (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/register') {
       return NextResponse.redirect(new URL('/', request.url));
+    } 
+    if (request.nextUrl.pathname === '/') {
+      return NextResponse.redirect(new URL('/my-courses', request.url));
+
     }
 
     return res
