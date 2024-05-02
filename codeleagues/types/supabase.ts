@@ -119,6 +119,42 @@ export type Database = {
           },
         ]
       }
+      student_course_instance: {
+        Row: {
+          course: string | null
+          created_at: string
+          id: string
+          student: string | null
+        }
+        Insert: {
+          course?: string | null
+          created_at?: string
+          id?: string
+          student?: string | null
+        }
+        Update: {
+          course?: string | null
+          created_at?: string
+          id?: string
+          student?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "student_course_instance_course_fkey"
+            columns: ["course"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_course_instance_student_fkey"
+            columns: ["student"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       users: {
         Row: {
           created_at: string
@@ -126,6 +162,7 @@ export type Database = {
           id: string
           lastname: string | null
           name: string | null
+          role: string | null
         }
         Insert: {
           created_at?: string
@@ -133,6 +170,7 @@ export type Database = {
           id?: string
           lastname?: string | null
           name?: string | null
+          role?: string | null
         }
         Update: {
           created_at?: string
@@ -140,6 +178,7 @@ export type Database = {
           id?: string
           lastname?: string | null
           name?: string | null
+          role?: string | null
         }
         Relationships: []
       }
